@@ -1,0 +1,21 @@
+{
+  "name": "Nylas Hangouts",
+  "version": "1.0",
+  "description": "Nylas Google Hangout Extension",
+  "manifest_version": 2,
+   "icons": {
+    "128": "logo-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://hangouts.google.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "logo-128.png"
+  }
+}
