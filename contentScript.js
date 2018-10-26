@@ -18,6 +18,10 @@ function findWithText(text, selector='div[role="button"]') {
   return Array.from(document.querySelectorAll(selector)).filter((b) => b.innerText.toLowerCase().trim() == text)[0]
 }
 
+function findWithAriaLabel(text, selector='div[role="button"]') {
+  return Array.from(document.querySelectorAll(selector)).filter((b) => b.getAttribute('aria-label') == text)[0]
+}
+
 function reloadAtMidnight() {
   const now = new Date();
   if (now.getHours() == 0 && now.getMinutes() == 0 && now.getSeconds() <= CHECK_INTERVAL_SEC + 1) {
@@ -38,6 +42,11 @@ function signIntoGoogle() {
   if (findWithText('choose an account', '#headingText')) {
     const chooseAccount = findWithText(EMAIL, 'p[role="heading"]')
     doClick(chooseAccount)
+  }
+
+  const unmute = findWithAriaLabel('Unmute microphone');
+  if (unmute) {
+    doClick(unmute)
   }
 
   const password = document.querySelector('input[type="password"]')
