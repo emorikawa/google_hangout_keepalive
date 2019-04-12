@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key> <string>nylas.hangout_fullscreen</string>
+
+  <key>StandardOutPath</key><string>/Users/nylas/google_hangout_keepalive/fullscreen.log</string>
+  <key>StandardErrorPath</key> <string>/Users/nylas/google_hangout_keepalive/fullscreen.log</string>
+
+  <key>RunAtLoad</key> <true/>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>1</integer>
+    <key>Minute</key><integer>0</integer>
+  </dict>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/osascript</string>
+    <string>/Users/nylas/google_hangout_keepalive/fullscreen.applescript</string>
+  </array>
+</dict></plist>
