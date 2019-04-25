@@ -1,4 +1,5 @@
 const CHECK_INTERVAL_SEC = 2;
+const UNMUTE_CHECK_SEC = 3600;
 const EMAIL = ''
 const PASSWORD = ''
 
@@ -38,15 +39,17 @@ function checkLoop() {
   reloadAtMidnight()
 }
 
+function unmute() {
+  const unmute = findWithAriaLabel('Unmute microphone');
+  if (unmute) {
+    doClick(unmute)
+  }
+}
+
 function signIntoGoogle() {
   if (findWithText('choose an account', '#headingText')) {
     const chooseAccount = findWithText(EMAIL, 'p[role="heading"]')
     doClick(chooseAccount)
-  }
-
-  const unmute = findWithAriaLabel('Unmute microphone');
-  if (unmute) {
-    doClick(unmute)
   }
 
   const password = document.querySelector('input[type="password"]')
@@ -66,3 +69,4 @@ function signIntoGoogle() {
 }
 
 setInterval(checkLoop, CHECK_INTERVAL_SEC * 1000)
+setInterval(unmute, UNMUTE_CHECK_SEC * 1000)
