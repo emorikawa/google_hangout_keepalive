@@ -31,7 +31,7 @@ function reloadAtMidnight() {
 }
 
 function checkLoop() {
-  ['join', 'yes', 'try again', 'ok'].forEach((btnText) => {
+  ['join', 'yes', 'try again', 'ok', 'start meeting', 'join meeting'].forEach((btnText) => {
     const btn = findWithText(btnText)
     if (btn) doClick(btn)
   })
@@ -40,7 +40,10 @@ function checkLoop() {
 }
 
 function unmute() {
-  const unmute = findWithAriaLabel('Unmute microphone');
+  let unmute = findWithAriaLabel('Unmute microphone');
+  if (!unmute) {
+    unmute = findWithAriaLabel('Turn on microphone');
+  }
   if (unmute) {
     doClick(unmute)
   }

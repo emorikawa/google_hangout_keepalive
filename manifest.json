@@ -8,7 +8,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://hangouts.google.com/*", "https://accounts.google.com/*", "https://myaccount.google.com/*"],
+      "matches": ["https://hangouts.google.com/*", "https://accounts.google.com/*", "https://myaccount.google.com/*", "https://meet.google.com"],
       "js": ["contentScript.js"]
     }
   ],
